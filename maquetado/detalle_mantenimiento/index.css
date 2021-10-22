@@ -1,0 +1,15 @@
+body {
+    margin: 1em;
+}
+
+.row {
+    background-color: #e7e8dc;
+}
+
+.estado {
+    background-color: white;
+}
+
+textarea {
+    height: 200px;
+}
