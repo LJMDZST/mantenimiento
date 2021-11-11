@@ -9,15 +9,22 @@ const query = util.promisify(ConexionMysql.query).bind(ConexionMysql);
  * @param {*} nuevoReg datos del nuevo registro fomato (valor1,valor2,...,valorn)
  */
 
-const actualizarBaseDeDatos = async( nomTabla = '', nuevoReg = '' )=>{
+const actualizarBaseDeDatos = async( nomTabla = '', nuevoReg = '', modReg = '' )=>{
    
     try {
-        const sql = `insert into ${nomTabla} values ${nuevoReg}`; 
+        let sql = '';
+        if(nuevoReg !== '' && modReg === ''){
+            sql = `insert into ${nomTabla} values ${nuevoReg}`; 
+        }else {
+
+            sql = `update ${nomTabla} set ${modReg}`
+            
+        }
 
         const resp = await query(sql);
         return ({
             ok : true,
-            resp
+            data : resp
         })
         
     } catch (error) {

@@ -3,10 +3,10 @@ const { request, response } = require('express');
 const { actualizarBaseDeDatos } = require('../helpers/actualizarBaseDeDatos');
 
 
-const cancelarMantenimiento = async( req = request, res = response )=>{
+const finalizarMantenimiento = async( req = request, res = response )=>{
     const {idDetalle} = req.body;
     try {
-        const modReg = `id_estado = 3 WHERE id_mantenimiento=${idDetalle}`;
+        const modReg = `id_estado = 1 WHERE id_mantenimiento=${idDetalle}`;
         const resp = await actualizarBaseDeDatos('mantenimiento', '', modReg);
 
         res.json({
@@ -22,5 +22,5 @@ const cancelarMantenimiento = async( req = request, res = response )=>{
 }
 
 module.exports = {
-    cancelarMantenimiento
+    finalizarMantenimiento
 }

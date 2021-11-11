@@ -7,6 +7,7 @@ const agregarMantenimiento = async(req = request, res = response) => {
     const {
         id_mantenimiento,
         id_equipo,
+        id_usuario,
         fecIni,
         fecFin,
         tarea,
@@ -16,11 +17,17 @@ const agregarMantenimiento = async(req = request, res = response) => {
 
 
     try {
-        const sqlStr = `( '${id_mantenimiento}','${id_equipo}','${fecIni}','${fecFin}','${tarea}','${observ}','${id_estado}' )`;
+        const sqlStr = `( '${id_mantenimiento}',
+        '${id_equipo}',
+        '${id_usuario}',
+        '${fecIni}',
+        '${fecFin}',
+        '${tarea}',
+        '${observ}',
+        '${id_estado}' )`;
         const resp = await actualizarBaseDeDatos('mantenimiento',sqlStr);
         res.json({
-            ok : true,
-            data : resp
+           ...resp
         })       
     } catch (error) {
         res.json({

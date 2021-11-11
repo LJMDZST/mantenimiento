@@ -23,7 +23,8 @@ app.use('/mantenimiento/ver',require('./routes/ver'));
 app.use('/mantenimiento/agregar',require('./routes/agregar'));
 app.use('/mantenimiento/editar',require('./routes/editar'));
 app.use('/mantenimiento/cancelar',require('./routes/cancelar'));
+app.use('/mantenimiento/finalizar',require('./routes/finalizar'))
 
 app.listen(process.env.PORT, ()=>{
-    console.log( `Server en ${process.env.PORT}`);
+    console.log( `Server en puerto ${process.env.PORT}`);
 });

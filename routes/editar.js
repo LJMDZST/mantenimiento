@@ -4,6 +4,6 @@ const { editarMantenimiento } = require("../controllers/editarMantenimiento");
 const router = Router();
 
 // http POST
-router.post('/editar/:idDet',editarMantenimiento );
+router.post('/',editarMantenimiento );
 
-module.exports= router;
+module.exports = router;

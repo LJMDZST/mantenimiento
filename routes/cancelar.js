@@ -4,6 +4,6 @@ const { cancelarMantenimiento } = require("../controllers/cancelarMantenimiento"
 const router = Router();
 
 // http POST
-router.delete('/cancelar/:idDet',cancelarMantenimiento);
+router.post('/',cancelarMantenimiento);
 
 module.exports= router;

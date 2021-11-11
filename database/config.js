@@ -12,6 +12,5 @@ const ConexionMysql = mysql.createConnection(sqlConfig);
 
 
 module.exports = {
-    ConexionMysql,
-    sqlConfig
+    ConexionMysql
 }
