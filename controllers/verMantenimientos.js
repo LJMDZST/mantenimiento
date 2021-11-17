@@ -1,7 +1,7 @@
 const { request, response } = require("express");
 const { consultarBaseDeDatos } = require("../helpers/consultarBaseDeDatos");
 
-const verMantenimientos = async(req = request, resp = response)=>{
+export const verMantenimientos = async(req = request, resp = response)=>{
     try {
         const resSql = await consultarBaseDeDatos( 'mantenimiento' );
         resSql.data = resSql.data.map( mant => ({
