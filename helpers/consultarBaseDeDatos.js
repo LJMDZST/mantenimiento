@@ -12,12 +12,13 @@ const consultarBaseDeDatos = async( nomTabla = '',  nomCampo = '', id = null )=>
     try {
         let sql = '';
         if( id === null){
-           sql = `select * from ${nomTabla}`;
-        } else {
-           sql = `select * from ${nomTabla} WHERE id_${nomCampo}=${id}`;
+           sql = `SELECT * FROM ${nomTabla}`;
+        } 
+        else {    
+            sql = `SELECT * FROM ${nomTabla} WHERE id_${nomCampo}=${id}`;
         }
-
         const resp = await query(sql);
+
         return ({
             ok : true,
             data : resp

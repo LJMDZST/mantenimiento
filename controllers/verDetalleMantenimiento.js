@@ -3,11 +3,10 @@ const { consultarBaseDeDatos } = require("../helpers/consultarBaseDeDatos");
 
 
 const verDetalleMantenimiento = async(req = request, res = response)=>{
-    const {idDetalle} = req.params;
+    const {idDet} = req.params;
 
     try {
-        const resp = await consultarBaseDeDatos('mantenimiento','mantenimiento',idDetalle);
-
+        const resp = await consultarBaseDeDatos('mantenimiento','mantenimiento',idDet);
         res.json({
             ...resp
         })
