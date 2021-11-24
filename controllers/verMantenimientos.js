@@ -5,6 +5,7 @@ const verMantenimientos = async(req = request, resp = response)=>{
     try {
         const resSql = await consultarBaseDeDatos( 'mantenimiento' );
         resSql.data = resSql.data.map( mant => ({
+            id_mantenimiento : mant.id_mantenimiento,
             fecIni: mant.fecIni,
             id_equipo: mant.id_equipo,
             tarea: mant.tarea,
