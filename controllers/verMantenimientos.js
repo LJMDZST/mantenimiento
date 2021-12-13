@@ -3,7 +3,10 @@ const { consultarBaseDeDatos } = require("../helpers/consultarBaseDeDatos");
 
 const verMantenimientos = async(req = request, resp = response)=>{
     try {
+
+
         const resSql = await consultarBaseDeDatos( 'mantenimiento' );
+        
         resSql.data = resSql.data.map( mant => ({
             id_mantenimiento : mant.id_mantenimiento,
             fecIni: mant.fecIni,
@@ -11,6 +14,7 @@ const verMantenimientos = async(req = request, resp = response)=>{
             tarea: mant.tarea,
             id_estado: mant.id_estado,
         }) )
+        
         resp.json({
            ...resSql
 

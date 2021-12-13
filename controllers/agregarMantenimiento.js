@@ -8,10 +8,9 @@ const agregarMantenimiento = async(req = request, res = response) => {
         id_mantenimiento,
         id_equipo,
         id_usuario,
+        id_tecnico,
         fecIni,
         fecFin,
-        tarea,
-        observ,
         id_estado
     } = req.body;
 
@@ -20,10 +19,9 @@ const agregarMantenimiento = async(req = request, res = response) => {
         const sqlStr = `( '${id_mantenimiento}',
         '${id_equipo}',
         '${id_usuario}',
+        '${id_tecnico}',
         '${fecIni}',
         '${fecFin}',
-        '${tarea}',
-        '${observ}',
         '${id_estado}' )`;
         const resp = await actualizarBaseDeDatos('mantenimiento',sqlStr);
         res.json({

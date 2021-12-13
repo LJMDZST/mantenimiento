@@ -3,7 +3,7 @@ const { editarMantenimiento } = require("../controllers/editarMantenimiento");
 
 const router = Router();
 
-// http POST
-router.post('/',editarMantenimiento );
+// http PUT
+router.put('/',editarMantenimiento );
 
 module.exports = router;

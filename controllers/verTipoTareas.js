@@ -1,15 +1,16 @@
-const { request, response } = require("express")
+const {  response } = require("express")
 const { consultarBaseDeDatos } = require("../helpers/consultarBaseDeDatos")
 
-const verUsuarios =  async(req = request, resp = response)=>{
-  
+const verTipoTareas =  async( req , resp = response)=>{
     try {
-        const resSql = await consultarBaseDeDatos('usuarios','',null);
-    
+        const resSql = await consultarBaseDeDatos('tipo_tarea');
+        
         resp.json({
             ...resSql
-        }) 
+        }); 
+       
     } catch (error) {
+        console.log(error)
         resp.json({
             ok : false,
             error
@@ -17,6 +18,7 @@ const verUsuarios =  async(req = request, resp = response)=>{
     }
 }
 
+
 module.exports = {
-    verUsuarios
+    verTipoTareas
 }

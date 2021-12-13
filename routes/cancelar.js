@@ -3,7 +3,7 @@ const { cancelarMantenimiento } = require("../controllers/cancelarMantenimiento"
 
 const router = Router();
 
-// http POST
-router.post('/',cancelarMantenimiento);
+// http PUT
+router.put('/',cancelarMantenimiento);
 
 module.exports= router;
