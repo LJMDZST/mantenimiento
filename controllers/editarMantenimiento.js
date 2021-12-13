@@ -8,10 +8,9 @@ const editarMantenimiento = async(req = request, res = response)=>{
         const modReg = 
         `id_equipo = ${datos.id_equipo},
         id_usuario = ${datos.id_usuario},
+        id_tecnico = ${datos.id_tecnico},
         fecIni = '${datos.fecIni}',
         fecFin = '${datos.fecFin}',
-        tarea = '${datos.tarea}',
-        observ = '${datos.observ}',
         id_estado = ${datos.id_estado}
         WHERE id_mantenimiento = ${idDetalle}`;
     
