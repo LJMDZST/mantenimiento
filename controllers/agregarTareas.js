@@ -4,13 +4,13 @@ const { actualizarBaseDeDatos } = require('../helpers/actualizarBaseDeDatos');
 
 const agregarTareas = async(req = request, res = response) => {
     
-    const lTareas = req.body;
+    const {tareas} = req.body;
 
 
     try {
         let sqlStr = '';
         
-        lTareas.forEach((tarea,i) => {
+        tareas.forEach((tarea,i) => {
             const {
                 id_tarea,
                 id_tipo_tarea,
@@ -24,10 +24,10 @@ const agregarTareas = async(req = request, res = response) => {
             '${id_tipo_tarea}',
             '${id_mantenimiento}',
             '${observ}',
-            '${fecha}' ) ${(i<lTareas.length-1) ? ',' : '' }` ;
+            '${fecha}' ) ${(i<tareas.length-1) ? ',' : '' }` ;
         });
+        console.log(sqlStr)
        
-
         const resp = await actualizarBaseDeDatos('tareas',sqlStr);
         res.json({
            ...resp

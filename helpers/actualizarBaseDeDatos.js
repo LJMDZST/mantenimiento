@@ -10,7 +10,7 @@ const query = util.promisify(ConexionMysql.query).bind(ConexionMysql);
  */
 
 const actualizarBaseDeDatos = async( nomTabla = '', nuevoReg = '', modReg = '' )=>{
-   
+    console.log(modReg);
     try {
         let sql = '';
         if(nuevoReg !== '' && modReg === ''){

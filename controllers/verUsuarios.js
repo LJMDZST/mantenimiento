@@ -9,6 +9,7 @@ const verUsuarios =  async(req = request, resp = response)=>{
         resp.json({
             ...resSql
         }) 
+        
     } catch (error) {
         resp.json({
             ok : false,
